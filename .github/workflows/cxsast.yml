@@ -49,3 +49,4 @@ jobs:
           --merge-id=${{ github.event.number }}
           --checkmarx.version=9.6
           --checkmarx.multi-tenant=false
+          --cx-flow.zip-exclude=\.git/.*,\.github/.*
