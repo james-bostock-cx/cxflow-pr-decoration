@@ -41,4 +41,11 @@ jobs:
         break_build: false
         scanners: sast
         bug_tracker: WAIT
-        params: --namespace=${{ github.repository_owner }} --checkmarx.settings-override=true --repo-name=${{ github.event.repository.name }} --branch=${{ github.head_ref }} --merge-id=${{ github.event.number }} 
+        params: >
+          --namespace=${{ github.repository_owner }}
+          --checkmarx.settings-override=true
+          --repo-name=${{ github.event.repository.name }}
+          --branch=${{ github.head_ref }}
+          --merge-id=${{ github.event.number }}
+          --checkmarx.version=9.6
+          --checkmarx.multi-tenant=false
