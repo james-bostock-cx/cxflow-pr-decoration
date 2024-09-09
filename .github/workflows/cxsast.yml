@@ -32,7 +32,7 @@ jobs:
     - name: Checkmarx CxFlow Action
       uses: checkmarx-ts/checkmarx-cxflow-github-action@v2.0
       with:
-        project: jsb-${{ github.repository }}-${{ github.head_ref }}
+        project: ${{ github.repository }}-main
         team: ${{ secrets.CHECKMARX_TEAM }}
         checkmarx_url: ${{ secrets.CHECKMARX_URL }}
         checkmarx_username: ${{ secrets.CHECKMARX_USERNAME }}
