@@ -15,7 +15,8 @@ name: CxFlow-GitHub-Pull-Request
 
 # Controls when the action will run. Triggers the workflow on push or pull request events but only for the master branch
 on:
-  push:
+  pull_request:
+    types: [opened, reopened, synchronize]
     branches:
     - master
     - main
@@ -32,15 +33,16 @@ jobs:
     - name: Checkmarx CxFlow Action
       uses: checkmarx-ts/checkmarx-cxflow-github-action@v2.0
       with:
-        project: ${{ github.repository }}-main
+        project: ${{ github.repository }}
         team: ${{ secrets.CHECKMARX_TEAM }}
         checkmarx_url: ${{ secrets.CHECKMARX_URL }}
         checkmarx_username: ${{ secrets.CHECKMARX_USERNAME }}
         checkmarx_password: ${{ secrets.CHECKMARX_PASSWORD }}
         checkmarx_client_secret: ${{ secrets.CHECKMARX_CLIENT_SECRET }}
         break_build: false
+        incremental: true
         scanners: sast
-        bug_tracker: WAIT
+        bug_tracker: GITHUBPULL
         params: >
           --namespace=${{ github.repository_owner }}
           --checkmarx.settings-override=true
