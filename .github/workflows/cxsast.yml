@@ -42,6 +42,7 @@ jobs:
         break_build: false
         incremental: true
         scanners: sast
+        preset: ASA Premium
         bug_tracker: GITHUBPULL
         params: >
           --namespace=${{ github.repository_owner }}
