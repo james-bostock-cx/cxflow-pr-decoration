@@ -59,4 +59,4 @@ jobs:
           --cx-flow.filter-severity=High,Medium,Low
           --checkmarx.restrict-results-to-branch=true
           --checkmarx.client-id=resource_owner_sast_client
-          --checkmarx.scope=access_control_api%20sast_api
+          --checkmarx.scope='access_control_api sast_api'
