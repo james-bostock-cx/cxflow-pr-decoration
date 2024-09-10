@@ -32,6 +32,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: Checkmarx CxFlow Action
       uses: checkmarx-ts/checkmarx-cxflow-github-action@v2.0
+      env:
+        CHECKMARX_SCOPE: "access_control_api sast_api"
       with:
         project: ${{ github.repository }}-${{ github.head_ref }}
         team: ${{ secrets.CHECKMARX_TEAM }}
@@ -59,4 +61,3 @@ jobs:
           --cx-flow.filter-severity=High,Medium,Low
           --checkmarx.restrict-results-to-branch=true
           --checkmarx.client-id=resource_owner_sast_client
-          --checkmarx.scope=access_control_api sast_api
