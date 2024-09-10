@@ -33,7 +33,7 @@ jobs:
     - name: Checkmarx CxFlow Action
       uses: checkmarx-ts/checkmarx-cxflow-github-action@v2.0
       with:
-        project: ${{ github.repository }}
+        project: ${{ github.repository }}-${{ github.head_ref }}
         team: ${{ secrets.CHECKMARX_TEAM }}
         checkmarx_url: ${{ secrets.CHECKMARX_URL }}
         checkmarx_username: ${{ secrets.CHECKMARX_USERNAME }}
@@ -54,3 +54,4 @@ jobs:
           --cx-flow.zip-exclude=\.git/.*,\.github/.*
           --logging.level.com.checkmarx=DEBUG
           --checkmarx-cx-branch=true
+          --default-branch=main
