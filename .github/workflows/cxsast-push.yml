@@ -19,7 +19,7 @@ jobs:
     - name: Checkmarx CxFlow Action
       uses: checkmarx-ts/checkmarx-cxflow-github-action@v2.0
       with:
-        project: ${{ github.repository }}
+        project: ${{ github.repository }}-main
         team: ${{ secrets.CHECKMARX_TEAM }}
         checkmarx_url: ${{ secrets.CHECKMARX_URL }}  # To be stored in GitHub Secrets.
         checkmarx_username: ${{ secrets.CHECKMARX_USERNAME }}  # To be stored in GitHub Secrets.
@@ -28,5 +28,5 @@ jobs:
         github_token: ${{secrets.GH_TOKEN}}  # To be stored in GitHub Secrets.
         incremental: false
         scanners: sast
-        bug_tracker: GitHub
+        bug_tracker: WAIT
         params: --namespace=${{ github.repository_owner }} --checkmarx.settings-override=true --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref_name }} --cx-flow.filterSeverity --cx-flow.filterCategory
