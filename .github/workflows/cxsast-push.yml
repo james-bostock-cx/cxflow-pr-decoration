@@ -29,4 +29,11 @@ jobs:
         incremental: false
         scanners: sast
         bug_tracker: WAIT
-        params: --namespace=${{ github.repository_owner }} --checkmarx.settings-override=true --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref_name }} --cx-flow.filterSeverity --cx-flow.filterCategory
+        params: >
+          --namespace=${{ github.repository_owner }}
+          --checkmarx.settings-override=true
+          --repo-name=${{ github.event.repository.name }}
+          --branch=${{ github.ref_name }}
+          --cx-flow.filterSeverity
+          --cx-flow.filterCategory
+          --cx-flow.zip-exclude=\.git/.*,\.github/.*
