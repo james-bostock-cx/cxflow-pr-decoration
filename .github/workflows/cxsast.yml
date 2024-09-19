@@ -57,6 +57,8 @@ jobs:
           --cx-flow.zip-exclude=\.git/.*,\.github/.*
           --logging.level.com.checkmarx=DEBUG
           --logging.level.com.checkmarx.sdk=TRACE
+          --logging.level.org.springframework.web.client=DEBUG
+          --logging.level.org.apache.http.wire=DEBUG
           --checkmarx.cx-branch=true
           --default-branch=main
           --cx-flow.filter-severity=High,Medium,Low
