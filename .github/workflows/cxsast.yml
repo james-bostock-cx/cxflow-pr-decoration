@@ -56,7 +56,8 @@ jobs:
           --checkmarx.multi-tenant=false
           --cx-flow.zip-exclude=\.git/.*,\.github/.*
           --logging.level.com.checkmarx=DEBUG
-          --logging.level.com.checkmarx.sdk=TRACE
+          --logging.level.com.checkmarx.sdk=DEBUG
+          --logging.level.org.springframework.web.client=DEBUG
           --checkmarx.cx-branch=true
           --default-branch=main
           --cx-flow.filter-severity=High,Medium,Low
